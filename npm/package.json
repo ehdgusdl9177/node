@@ -11,5 +11,8 @@
     "test"
   ],
   "author": "hyeon",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "underscore": "^1.13.6"
+  }
 }
