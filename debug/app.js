@@ -1,5 +1,7 @@
 function sayHello() {
   console.log("hello!");
+  console.log("kevin");
+  console.log("kevin1");
 }
 
 function calculate(x, y) {
