@@ -1,4 +1,5 @@
 const http = require("http");
+const fs = require("fs");
 // const http2 = require("http2"); // https
 
 console.log(http.STATUS_CODES);
@@ -13,22 +14,13 @@ const server = http.createServer((req, res) => {
   const url = req.url;
   if (url === "/") {
     res.setHeader("Content-Type", "text/html");
-    res.write("<html></html>");
-    res.write("<head><title>Academy</title></head>");
-    res.write("<body><h1>Welcome!</h1></body>");
-    res.write("</html");
+    fs.createReadStream("./html/index.html").pipe(res);
   } else if (url === "/Courses") {
     res.setHeader("Content-Type", "text/html");
-    res.write("<html></html>");
-    res.write("<head><title>Hello</title></head>");
-    res.write("<body><h1>Courses</h1></body>");
-    res.write("</html");
+    fs.createReadStream("./html/courses.html").pipe(res);
   } else {
     res.setHeader("Content-Type", "text/html");
-    res.write("<html></html>");
-    res.write("<head><title>Academy</title></head>");
-    res.write("<body><h1>Not F</h1></body>");
-    res.write("</html");
+    fs.createReadStream("./html/not-found.html").pipe(res);
   }
   res.end();
 });
